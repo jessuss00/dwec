@@ -54,3 +54,14 @@ function maxValue(){
     BigInt(maxValor);
     console.log("El valor máximo que puede tener un número en JavaScript como BigInt es: " + BigInt(maxValor));
 }
+//Ejercicio 9
+function check_ambito_variables(){
+    let prueba= 5;
+    console.log("El valor de la variable prueba es: " + prueba);
+    {
+        let prueba2= 10;
+        console.log("Insisto, el valor de la variable prueba es: " + prueba);
+        console.log("El valor de la variable prueba2 es: " + prueba2);
+    }
+    console.log("El valor de la variable prueba2 es: " + prueba2);
+}
