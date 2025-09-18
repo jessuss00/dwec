@@ -42,3 +42,8 @@ function divide_suma(num1){
     var sumaInfinito= numeroDividido + 23;
     console.log("La suma de " + numeroDividido + " más 23 es: " + sumaInfinito);
 }
+//Ejercicio 7
+function Nam(num1){
+    var numeroDividido= num1/0;
+    console.log("El número " + num1 + " dividido entre 0 es: " + numeroDividido);
+}
