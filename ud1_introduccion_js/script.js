@@ -35,3 +35,10 @@ function muestra_n_distintas_bases(num){
     var numOctal= num.toString(8);
     console.log("El número " + num + " en octal es: " + numOctal);
 }
+//Ejercicio 6
+function divide_suma(num1){
+    var numeroDividido= num1/0;
+    console.log("El número " + num1 + " dividido entre 0 es: " + numeroDividido);
+    var sumaInfinito= numeroDividido + 23;
+    console.log("La suma de " + numeroDividido + " más 23 es: " + sumaInfinito);
+}
