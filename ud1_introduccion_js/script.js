@@ -54,7 +54,7 @@ function maxValue(){
     BigInt(maxValor);
     console.log("El valor máximo que puede tener un número en JavaScript como BigInt es: " + BigInt(maxValor));
 }
-//Ejercicio 9
+//Ejercicio 10
 function check_ambito_variables(){
     let prueba= 5;
     console.log("El valor de la variable prueba es: " + prueba);
@@ -64,4 +64,13 @@ function check_ambito_variables(){
         console.log("El valor de la variable prueba2 es: " + prueba2);
     }
     console.log("El valor de la variable prueba2 es: " + prueba2);
+}
+
+//Ejercicio 11
+function definir_y_mostrar_array(){
+    let array= ["Alberto", "Ana", "Antonio", "Beatriz", "Carmen"];
+    for(let i=0; i<array.length; i++){
+        console.log("El nombre en la posición " + i + " es: " + array[i]);
+    }
+    console.table(array);
 }
