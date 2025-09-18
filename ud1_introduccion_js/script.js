@@ -47,3 +47,10 @@ function Nam(num1){
     var numeroDividido= num1/0;
     console.log("El número " + num1 + " dividido entre 0 es: " + numeroDividido);
 }
+//Ejercicio 8
+function maxValue(){
+    var maxValor= Number.MAX_VALUE;
+    console.log("El valor máximo que puede tener un número en JavaScript es: " + maxValor);
+    BigInt(maxValor);
+    console.log("El valor máximo que puede tener un número en JavaScript como BigInt es: " + BigInt(maxValor));
+}
