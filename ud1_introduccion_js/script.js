@@ -69,8 +69,19 @@ function check_ambito_variables(){
 //Ejercicio 11
 function definir_y_mostrar_array(){
     let array= ["Alberto", "Ana", "Antonio", "Beatriz", "Carmen"];
-    for(let i=0; i<array.length; i++){
+    /* for(let i=0; i<array.length; i++){
         console.log("El nombre en la posición " + i + " es: " + array[i]);
-    }
+    } */
     console.table(array);
+}
+//Ejercicio 12
+function contar_y_temorizar(){
+    let valor=0;
+    let initTime= new Date();
+    for(let i=0; i<=1000000000; i++){
+        valor+=10;
+    }
+    let endTime= new Date();
+    console.log("Valor acumulado: " + valor);
+    console.log("Tiempo transcurrido: " + (endTime - initTime) + " ms");
 }
