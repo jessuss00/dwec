@@ -20,46 +20,46 @@ function pintar_ruta_V2() {
     console.log(substring + substring2);
 }
 //Ejercicio 4
-function muestra_potencia(){
-    var num= 2* Math.pow(10,-9);
+function muestra_potencia() {
+    var num = 2 * Math.pow(10, -9);
     console.log("El valor de 2 por 10^-9 es: " + num);
 }
 //Ejercicio 5
-function muestra_n_distintas_bases(num){
-    var numDecimal= num.toString(2);
+function muestra_n_distintas_bases(num) {
+    var numDecimal = num.toString(2);
     console.log("El número " + num + " en binario es: " + numDecimal);
-    var numDecimal= num.toString(10);
+    var numDecimal = num.toString(10);
     console.log("El número " + num + " en decimal es: " + numDecimal);
-    var numHexadecimal= num.toString(16);
+    var numHexadecimal = num.toString(16);
     console.log("El número " + num + " en hexadecimal es: " + numHexadecimal);
-    var numOctal= num.toString(8);
+    var numOctal = num.toString(8);
     console.log("El número " + num + " en octal es: " + numOctal);
 }
 //Ejercicio 6
-function divide_suma(num1){
-    var numeroDividido= num1/0;
+function divide_suma(num1) {
+    var numeroDividido = num1 / 0;
     console.log("El número " + num1 + " dividido entre 0 es: " + numeroDividido);
-    var sumaInfinito= numeroDividido + 23;
+    var sumaInfinito = numeroDividido + 23;
     console.log("La suma de " + numeroDividido + " más 23 es: " + sumaInfinito);
 }
 //Ejercicio 7
-function Nam(num1){
-    var numeroDividido= num1/0;
+function Nam(num1) {
+    var numeroDividido = num1 / 0;
     console.log("El número " + num1 + " dividido entre 0 es: " + numeroDividido);
 }
 //Ejercicio 8
-function maxValue(){
-    var maxValor= Number.MAX_VALUE;
+function maxValue() {
+    var maxValor = Number.MAX_VALUE;
     console.log("El valor máximo que puede tener un número en JavaScript es: " + maxValor);
     BigInt(maxValor);
     console.log("El valor máximo que puede tener un número en JavaScript como BigInt es: " + BigInt(maxValor));
 }
 //Ejercicio 10
-function check_ambito_variables(){
-    let prueba= 5;
+function check_ambito_variables() {
+    let prueba = 5;
     console.log("El valor de la variable prueba es: " + prueba);
     {
-        let prueba2= 10;
+        let prueba2 = 10;
         console.log("Insisto, el valor de la variable prueba es: " + prueba);
         console.log("El valor de la variable prueba2 es: " + prueba2);
     }
@@ -67,21 +67,83 @@ function check_ambito_variables(){
 }
 
 //Ejercicio 11
-function definir_y_mostrar_array(){
-    let array= ["Alberto", "Ana", "Antonio", "Beatriz", "Carmen"];
+function definir_y_mostrar_array() {
+    let array = ["Alberto", "Ana", "Antonio", "Beatriz", "Carmen"];
     /* for(let i=0; i<array.length; i++){
         console.log("El nombre en la posición " + i + " es: " + array[i]);
     } */
     console.table(array);
 }
 //Ejercicio 12
-function contar_y_temorizar(){
-    let valor=0;
-    let initTime= new Date();
-    for(let i=0; i<=1000000000; i++){
-        valor+=10;
+function contar_y_temorizar() {
+    let valor = 0;
+    let initTime = new Date();
+    for (let i = 0; i <= 1000000000; i++) {
+        valor += 10;
     }
-    let endTime= new Date();
+    let endTime = new Date();
     console.log("Valor acumulado: " + valor);
     console.log("Tiempo transcurrido: " + (endTime - initTime) + " ms");
+}
+//Ejercicio 13
+function error_ningun_valor() {
+    console.log("No se ha encontrado ningún valor");
+}
+//Ejercicio 14
+//function boton_eliminar(){
+
+//Ejercicio 15 
+function pedir_nombre_usuario() {
+    let seguir = true;
+
+    while (seguir) {
+        let nombre = window.prompt("Por favor, introduce tu nombre de usuario:");
+        console.log("El nombre de usuario es: " + nombre);
+        seguir = window.confirm("¿Desea continuar el programa?");
+        console.log("Has decidido: " + seguir);
+    }
+    console.log("Fin del programa");
+}
+//Ejercicio 16
+function comprobaciones() {
+
+
+
+    let nombre = prompt("Por favor, introduce tu nombre de usuario:");
+    let edad = prompt("Por favor, introduce tu edad:");
+    let tlf = prompt("Por favor, introduce tu número de teléfono:");
+    let direccion = prompt("Por favor, introduce tu dirección:");
+    let ciudad = prompt("Por favor, introduce tu ciudad:");
+
+    if (edad ** 5 == tlf || ciudad.toUpperCase() === "Mairena del alcor".toUpperCase()) {
+        console.log("Enorabuena");
+    }
+}
+//Ejercicio 17
+function contar_cifras() {
+    let numero = Math.abs(Number(prompt("Por favor, introduce un número:")));
+    let contador = 0;
+    for (let i = numero; i >= 1; i = i / 10) {
+        contador++;
+    }
+    console.log("El número " + numero + " tiene " + contador + " cifras.");
+}
+
+//Ejercicio 18
+function clasificar_edad() {
+    let edad = Number(prompt("Por favor, introduce tu edad:"));
+    switch (true) {
+        case (edad <= 16):
+            console.log("Eres un niño.");
+            break;
+        case (edad >= 17 && edad <= 25):
+            console.log("Eres un joven.");
+            break;
+        case (edad >= 26 && edad <= 60):
+            console.log("Eres un adulto.");
+            break;
+        case (edad >= 65):
+            console.log("Eres un senior.");
+            break;
+    }
 }
