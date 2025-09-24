@@ -131,19 +131,72 @@ function contar_cifras() {
 
 //Ejercicio 18
 function clasificar_edad() {
-    let edad = Number(prompt("Por favor, introduce tu edad:"));
+    let edad = document.getElementById("edad").value;
     switch (true) {
-        case (edad <= 16):
-            console.log("Eres un niño.");
+        case (edad >= 0 && edad <= 16):
+            pintar_mensaje("Eres un niño.", true);
             break;
         case (edad >= 17 && edad <= 25):
-            console.log("Eres un joven.");
+            pintar_mensaje("Eres un joven.", true);
             break;
         case (edad >= 26 && edad <= 60):
-            console.log("Eres un adulto.");
+            pintar_mensaje("Eres un adulto.", true);
             break;
         case (edad >= 65):
-            console.log("Eres un senior.");
+            pintar_mensaje("Eres un senior.", true);
+        default:
+            pintar_mensaje("Edad no válida.", false);
             break;
     }
+}
+function pintar_mensaje(mensaje, isOk) {
+    let aviso = document.getElementById("aviso");
+    aviso.textContent = mensaje;
+    if (isOk) {
+        aviso.style.color = "green";
+    } else {
+        aviso.style.color = "red";
+    }
+}
+//Ejercicio 19
+function numero_aleatorio() {
+    let numero = Math.trunc(Math.random() * 10) + 1;
+    let intentos = 0;
+    let acertado = false;
+
+    while (!acertado) {
+        let respuesta = Number(prompt("Adivina el número (entre 1 y 10):"));
+        intentos++;
+        if (respuesta === numero) {
+            acertado = true;
+            console.log("¡Correcto! El número era " + numero);
+        } else {
+            console.log("Incorrecto. Intenta de nuevo.");
+        }
+    }
+    console.log("Número de intentos: " + intentos);
+}
+function numero_aleatorio2() {
+    let numero = Math.trunc(Math.random() * 10) + 1;
+    let contador = 0;
+    alert("Se ha calculado un número aleatorio entre 1 y 10. Intenta adivinarlo.");
+    do {
+        contador++;
+        var intento = Number(prompt("Intento:" + contador));
+    }while (intento !== numero);
+    console.log("¡Correcto! El número era " + numero + ". Lo has conseguido en " + contador + " intentos.");
+
+}
+//Ejercicio 20
+function imprimir_multiplo(){
+    let n = Number(prompt("Introduce un número:"));
+    let multiplos = 0 ;
+    const max =100;
+    for(let i = 1; i <= max; i++){
+        if(i % n === 0){
+            multiplos++;
+            console.log( "multiplos " + i);
+        }
+    }
+    console.log("El número de múltiplos de " + n + " entre 1 y " + max + " es: " + multiplos);
 }
