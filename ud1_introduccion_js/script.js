@@ -192,7 +192,7 @@ function imprimir_multiplo(){
     let n = Number(prompt("Introduce un número:"));
     let multiplos = 0 ;
     const max =100;
-    for(let i = 1; i <= max; i++){
+    for(let i = n+1; i <= max; i++){
         if(i % n === 0){
             multiplos++;
             console.log( "multiplos " + i);
