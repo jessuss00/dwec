@@ -10,3 +10,42 @@ window.onload = function() {
         ejercicios[i].style.backgroundColor = colores[Math.floor(colorAleatorio)];
     }
 }
+
+function calcular_Fibonacci(){
+    let numero = Number(prompt("Introduce un número:"));
+    console.log("El valor fib(" + numero + ") es: " + fibonacci(numero));
+}
+function fibonacci(n){
+    if(n === 0){
+        return 0;
+    } else if(n === 1){
+        return 1;
+    } else {
+        return fibonacci(n-1) + fibonacci(n-2);
+    }
+}
+
+function calcular_factorial(isRec){
+    let numero = Number(prompt("Introduce un número:"));
+    let resultado;
+    if(isRec){
+        resultado = factorial_recursiva(numero);
+    } else {
+        resultado = calcular_tradicional(numero);
+    }
+    console.log("El valor " + numero + "! es: " + resultado);
+}
+function factorial_recursiva(n){
+    if(n === 0){
+        return 1;
+    } else {
+        return n * factorial_recursiva(n-1);
+    }
+}
+function calcular_tradicional(numero){
+    let factorial = 1;
+    for(let i = 1; i <= numero; i++){
+        factorial *= i;
+    }
+    console.log("El valor " + numero + "! es: " + factorial);
+}
