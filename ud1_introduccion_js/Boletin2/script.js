@@ -47,5 +47,22 @@ function calcular_tradicional(numero){
     for(let i = 1; i <= numero; i++){
         factorial *= i;
     }
-    console.log("El valor " + numero + "! es: " + factorial);
+    return factorial;
+}
+
+function transformar_dias_horas(){
+    let dias = Number(prompt("Introduce una cantidad de dias:"));
+    let horas = dias * 24;
+    let minutos = horas * 60;
+    let segundos = horas * 3600;
+    console.log(dias + " dias son " + horas + " horas, " + minutos + " minutos y " + segundos + " segundos.");
+}
+
+function resolver_ecuacion(){
+    let a = Number(prompt("Introduce el valor de a:"));
+    let b = Number(prompt("Introduce el valor de b:"));
+    let c = Number(prompt("Introduce el valor de c:"));
+    let result1 =( -b + Math.sqrt(b**2 - 4*a*c) ) / (2*a);
+    let result2 =( -b - Math.sqrt(b**2 - 4*a*c) ) / (2*a);
+    console.log("La solucion de "+ a +"x**2 + " + b + "x + " + c + " = 0 es: (" + result1 + ", " + result2 + ")");
 }
