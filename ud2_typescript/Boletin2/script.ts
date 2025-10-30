@@ -1,23 +1,34 @@
-function cambiar_titulo(){
+function $inputValuee(id: string) : string{
+    const input = document.getElementById(id) as HTMLInputElement; //Lectura
+    let result = "";
+
+    if(input){
+        result = input.value; //Recojo el valor (aqui es donde leo)
+    }
+
+    return result;
+}
+
+function cambiar_titulo() {
     let titulo = prompt("Introduce un nuevo titulo") as string;
     console.log(titulo);
     let nodoTitulo: HTMLHeadElement = document.getElementById("titulo") as HTMLHeadElement;
     nodoTitulo.textContent = titulo;
 }
-function cambiar_modo(){
+function cambiar_modo() {
     let body: HTMLBodyElement = document.body as HTMLBodyElement;
-    
-    if(body.style.backgroundColor == "white" ){
+
+    if (body.style.backgroundColor == "white") {
         body.style.backgroundColor = "black";
-        body.style.color = "white"; 
-    }else{
+        body.style.color = "white";
+    } else {
         body.style.backgroundColor = "white";
         body.style.color = "black";
     }
 
-    
+
 }
-function analiza_edad(){
+function analiza_edad() {
 
     //Recojo el valor numerico desde el input con la edad del usuario
     let input: HTMLInputElement = document.getElementById("edad") as HTMLInputElement;
@@ -26,24 +37,24 @@ function analiza_edad(){
 
     //Creo el nodo <ol> raíz que contendra los elementos de la lista y modifico su estilo
     let lista: HTMLOListElement = document.getElementById("resultado") as HTMLOListElement;
-    lista.innerHTML ="";
+    lista.innerHTML = "";
     lista.style.fontWeight = "bold";
     lista.style.color = "green";
     lista.type = "a";
 
     //a. Compruebo si es mayor o menor de edad
     let mayorMenor: HTMLLIElement = document.createElement("li") as HTMLLIElement;
-    mayorMenor.textContent = edad > 18? "Eres mayor" : "Eres menor";
+    mayorMenor.textContent = edad > 18 ? "Eres mayor" : "Eres menor";
 
     //b. Compruebo si la edad es o no par
     let parImpar: HTMLLIElement = document.createElement("li") as HTMLLIElement;
-    parImpar.textContent = edad %2 == 0? "La edad es par" : "La edad es impar";
+    parImpar.textContent = edad % 2 == 0 ? "La edad es par" : "La edad es impar";
 
     //c. Calcular divisores de la edad
     let divisores: string = "";
 
-    for(let i = 1; i <= edad; i++){
-        if(edad%i== 0){
+    for (let i = 1; i <= edad; i++) {
+        if (edad % i == 0) {
             divisores += i + ", ";
         }
     }
@@ -54,8 +65,8 @@ function analiza_edad(){
     listaDivisores.textContent = divisores;
 
     //d. Clasifica edad
-    let rangoEdad ="";
-    switch(true){
+    let rangoEdad = "";
+    switch (true) {
         case edad >= 0 && edad < 15:
             rangoEdad = "Niño";
             break;
@@ -82,9 +93,48 @@ function analiza_edad(){
     lista.appendChild(edadTexto);
 }
 
-function pedir_nombre(){
+function pedir_nombre() {
+    const anterior = document.getElementById("nombre-mostrado");
+    if (anterior) anterior.textContent="";
     let nombre = prompt("Introduce tu nombre") as string;
     let nombreNuevo: HTMLParagraphElement = document.createElement("p") as HTMLParagraphElement;
-    nombreNuevo.textContent = nombre;
+    nombreNuevo.id = "nombre-mostrado";
+    nombreNuevo.textContent = "Hola " + nombre;
+    document.body.appendChild(nombreNuevo);
+    console.log(nombreNuevo)
+    
+    let select: HTMLSelectElement= document.getElementById("colores") as HTMLSelectElement;
+    
+    select.addEventListener("change", ()=>{
+        nombreNuevo.style.color = select.value;
+    })
+
 }
+
+function ver_menu(){
+    let idioma = navigator.language;
+    console.log("Idioma", idioma)
+    let nombre = navigator.userAgent;
+    console.log("Nombre", nombre)
+    if(navigator.cookieEnabled){
+        console.log("tiene cookies");
+    }else{
+        console.log("no tiene cookies")
+    }
+    let largo = document.documentElement.clientWidth;
+    let alto = document.documentElement.clientHeight;
+    console.log(largo +"x"+alto);
+}
+
+ function ir_url(){
+    const url = $inputValuee("url");
+    const regExp = /^https:\/\//;
+
+    if (regExp.test(url)) {
+        window.location.href = url;
+    } else {
+        alert("Por favor, introduzca una URL válida que empiece por https://");
+    }
+}
+
 

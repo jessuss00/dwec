@@ -1,3 +1,11 @@
+function $inputValuee(id) {
+    var input = document.getElementById(id); //Lectura
+    var result = "";
+    if (input) {
+        result = input.value; //Recojo el valor (aqui es donde leo)
+    }
+    return result;
+}
 function cambiar_titulo() {
     var titulo = prompt("Introduce un nuevo titulo");
     console.log(titulo);
@@ -69,7 +77,42 @@ function analiza_edad() {
     lista.appendChild(edadTexto);
 }
 function pedir_nombre() {
+    var anterior = document.getElementById("nombre-mostrado");
+    if (anterior)
+        anterior.textContent = "";
     var nombre = prompt("Introduce tu nombre");
     var nombreNuevo = document.createElement("p");
-    nombreNuevo.textContent = nombre;
+    nombreNuevo.id = "nombre-mostrado";
+    nombreNuevo.textContent = "Hola " + nombre;
+    document.body.appendChild(nombreNuevo);
+    console.log(nombreNuevo);
+    var select = document.getElementById("colores");
+    select.addEventListener("change", function () {
+        nombreNuevo.style.color = select.value;
+    });
+}
+function ver_menu() {
+    var idioma = navigator.language;
+    console.log("Idioma", idioma);
+    var nombre = navigator.userAgent;
+    console.log("Nombre", nombre);
+    if (navigator.cookieEnabled) {
+        console.log("tiene cookies");
+    }
+    else {
+        console.log("no tiene cookies");
+    }
+    var largo = document.documentElement.clientWidth;
+    var alto = document.documentElement.clientHeight;
+    console.log(largo + "x" + alto);
+}
+function ir_url() {
+    var url = $inputValuee("url");
+    var regExp = /^https:\/\//;
+    if (regExp.test(url)) {
+        window.location.href = url;
+    }
+    else {
+        alert("Por favor, introduzca una URL válida que empiece por https://");
+    }
 }
