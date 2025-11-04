@@ -116,3 +116,55 @@ function ir_url() {
         alert("Por favor, introduzca una URL válida que empiece por https://");
     }
 }
+function jugar_lista() {
+    var seleccion = Number(prompt("Seleccione una opción:\n" +
+        "1. Cuente el número de nodos o elementos\n" +
+        "2. Obtén el texto del primer y último elemento\n" +
+        "3. Duplica (colocando al final) un elemento dado según su número\n" +
+        "4. Modifica el valor de un elemento de la lista dado según su número\n" +
+        "5. Muestra todos los elementos\n" +
+        "6. Añade un nuevo nodo\n" +
+        "7. Elimina el nodo indicado por el número que ocupa según su posición\n" +
+        "8. Ordena todos los nodos alfabéticamente"));
+    var lista = document.getElementById("listado");
+    var item = lista.children;
+    switch (seleccion) {
+        case 1:
+            console.log(item.length);
+            break;
+        case 2:
+            console.log(item[0].textContent);
+            console.log(item[item.length - 1].textContent);
+            break;
+        case 3:
+            var numLI = Number(prompt("Que numero clonamos"));
+            var nuevoSobri = document.createElement("li");
+            nuevoSobri.textContent = item[numLI - 1].textContent;
+            lista.appendChild(nuevoSobri);
+            break;
+        case 4:
+            numLI = Number(prompt("Que numero cambiamos"));
+            var newText = prompt("Dame la nueva frase");
+            item[numLI - 1].textContent = newText;
+            break;
+        case 5:
+            for (var index = 0; index < item.length; index++) {
+                console.log("nodo" + index + "=" + item[index].textContent);
+            }
+            break;
+        case 6:
+            var content = prompt("Frase nueva");
+            var nuevoSobrino = document.createElement("li");
+            nuevoSobrino.textContent = content;
+            lista.appendChild(nuevoSobrino);
+            break;
+        case 7:
+            numLI = Number(prompt("Que numero eliminamos"));
+            lista.removeChild(item[numLI - 1]);
+            break;
+        case 8:
+            break;
+        default:
+            break;
+    }
+}

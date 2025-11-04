@@ -1,8 +1,8 @@
-function $inputValuee(id: string) : string{
+function $inputValuee(id: string): string {
     const input = document.getElementById(id) as HTMLInputElement; //Lectura
     let result = "";
 
-    if(input){
+    if (input) {
         result = input.value; //Recojo el valor (aqui es donde leo)
     }
 
@@ -95,38 +95,38 @@ function analiza_edad() {
 
 function pedir_nombre() {
     const anterior = document.getElementById("nombre-mostrado");
-    if (anterior) anterior.textContent="";
+    if (anterior) anterior.textContent = "";
     let nombre = prompt("Introduce tu nombre") as string;
     let nombreNuevo: HTMLParagraphElement = document.createElement("p") as HTMLParagraphElement;
     nombreNuevo.id = "nombre-mostrado";
     nombreNuevo.textContent = "Hola " + nombre;
     document.body.appendChild(nombreNuevo);
     console.log(nombreNuevo)
-    
-    let select: HTMLSelectElement= document.getElementById("colores") as HTMLSelectElement;
-    
-    select.addEventListener("change", ()=>{
+
+    let select: HTMLSelectElement = document.getElementById("colores") as HTMLSelectElement;
+
+    select.addEventListener("change", () => {
         nombreNuevo.style.color = select.value;
     })
 
 }
 
-function ver_menu(){
+function ver_menu() {
     let idioma = navigator.language;
     console.log("Idioma", idioma)
     let nombre = navigator.userAgent;
     console.log("Nombre", nombre)
-    if(navigator.cookieEnabled){
+    if (navigator.cookieEnabled) {
         console.log("tiene cookies");
-    }else{
+    } else {
         console.log("no tiene cookies")
     }
     let largo = document.documentElement.clientWidth;
     let alto = document.documentElement.clientHeight;
-    console.log(largo +"x"+alto);
+    console.log(largo + "x" + alto);
 }
 
- function ir_url(){
+function ir_url() {
     const url = $inputValuee("url");
     const regExp = /^https:\/\//;
 
@@ -134,6 +134,88 @@ function ver_menu(){
         window.location.href = url;
     } else {
         alert("Por favor, introduzca una URL válida que empiece por https://");
+    }
+}
+
+function jugar_lista() {
+    let seleccion = Number(
+        prompt(
+            "Seleccione una opción:\n" +
+            "1. Cuente el número de nodos o elementos\n" +
+            "2. Obtén el texto del primer y último elemento\n" +
+            "3. Duplica (colocando al final) un elemento dado según su número\n" +
+            "4. Modifica el valor de un elemento de la lista dado según su número\n" +
+            "5. Muestra todos los elementos\n" +
+            "6. Añade un nuevo nodo\n" +
+            "7. Elimina el nodo indicado por el número que ocupa según su posición\n" +
+            "8. Ordena todos los nodos alfabéticamente"
+        )
+    );
+    let lista: HTMLOListElement = document.getElementById("listado") as HTMLOListElement;
+    let item = lista.children;
+
+    switch (seleccion) {
+        case 1:
+            console.log(item.length);
+
+            break;
+        case 2:
+            console.log(item[0].textContent);
+            console.log(item[item.length - 1].textContent);
+
+            break;
+        case 3:
+            let numLI = Number(
+                prompt(
+                    "Que numero clonamos"
+                )
+            );
+            let nuevoSobri: HTMLLIElement = document.createElement("li") as HTMLLIElement;
+            nuevoSobri.textContent = item[numLI-1].textContent;
+            lista.appendChild(nuevoSobri);
+
+
+            break;
+        case 4:
+            numLI = Number(
+                prompt(
+                    "Que numero cambiamos"
+                )
+            );
+            let newText = prompt("Dame la nueva frase") as string;
+            item[numLI-1].textContent = newText;
+            
+
+            break;
+        case 5:
+            for (let index = 0; index < item.length; index++) {
+                console.log("nodo"+index+"="+item[index].textContent)
+            }
+
+            break;
+        case 6:
+            let content = prompt("Frase nueva") as string;
+            
+            let nuevoSobrino: HTMLLIElement = document.createElement("li") as HTMLLIElement;
+            nuevoSobrino.textContent = content;
+            lista.appendChild(nuevoSobrino);
+
+            break;
+        case 7:
+            numLI = Number(
+                prompt(
+                    "Que numero eliminamos"
+                )
+            );
+            lista.removeChild(item[numLI-1]);
+
+            break;
+        case 8:
+
+            break;
+
+        default:
+            break;
     }
 }
 
