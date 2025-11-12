@@ -58,26 +58,13 @@ function realizar_accion() {
             
           
             document.cookie = cookieApellido;
-            
-          
             document.cookie = cookieTelefono;
-            
-          
             document.cookie = cookiefecha;
-            
-          
             document.cookie = cookieurl;
-            
-          
             document.cookie =
-            
-          
             document.cookie = cookieNombre;
-
             break;
-
         default:
             break;
     }
-
 }
