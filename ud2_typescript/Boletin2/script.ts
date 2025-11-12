@@ -1,3 +1,8 @@
+window.onload = () => {
+    cuadricula();
+    ej1_cookie();
+}
+
 function $inputValuee(id: string): string {
     const input = document.getElementById(id) as HTMLInputElement; //Lectura
     let result = "";
@@ -137,7 +142,7 @@ function ir_url() {
     }
 }
 
-function jugar_lista() {
+function jugar_lista(): void {
     let seleccion = Number(
         prompt(
             "Seleccione una opción:\n" +
@@ -171,7 +176,7 @@ function jugar_lista() {
                 )
             );
             let nuevoSobri: HTMLLIElement = document.createElement("li") as HTMLLIElement;
-            nuevoSobri.textContent = item[numLI-1].textContent;
+            nuevoSobri.textContent = item[numLI - 1].textContent;
             lista.appendChild(nuevoSobri);
 
 
@@ -183,19 +188,19 @@ function jugar_lista() {
                 )
             );
             let newText = prompt("Dame la nueva frase") as string;
-            item[numLI-1].textContent = newText;
-            
+            item[numLI - 1].textContent = newText;
+
 
             break;
         case 5:
             for (let index = 0; index < item.length; index++) {
-                console.log("nodo"+index+"="+item[index].textContent)
+                console.log("nodo" + index + "=" + item[index].textContent)
             }
 
             break;
         case 6:
             let content = prompt("Frase nueva") as string;
-            
+
             let nuevoSobrino: HTMLLIElement = document.createElement("li") as HTMLLIElement;
             nuevoSobrino.textContent = content;
             lista.appendChild(nuevoSobrino);
@@ -207,7 +212,7 @@ function jugar_lista() {
                     "Que numero eliminamos"
                 )
             );
-            lista.removeChild(item[numLI-1]);
+            lista.removeChild(item[numLI - 1]);
 
             break;
         case 8:
@@ -217,6 +222,35 @@ function jugar_lista() {
         default:
             break;
     }
+
 }
 
+function cuadricula() {
+    let divs: HTMLDivElement = document.getElementById("contenedor") as HTMLDivElement;
+    let notas: string[] = ["Javier", "Limpio","Alvaro","Fran","Elite","Franfli","Xexu"];
+    for (let index = 0; index < notas.length; index++) {
+        
+        divs.appendChild(crea_ficha(notas[index]));
+    } 
+}
+
+function crea_ficha(alumno: string): HTMLDivElement {
+    let ficha: HTMLDivElement = document.createElement("div") as HTMLDivElement ;
+    ficha.textContent = alumno;
+    ficha.style.background
+    return ficha;
+}
+
+function crear_nuevoAlum():void{
+    let nombre: string = prompt("Introduce el nombre del nuevo alumno") as string;
+    let divs: HTMLDivElement = document.getElementById("contenedor") as HTMLDivElement;
+
+}
+
+function ej1_cookie(){
+    let cookie: string = "lang=ES;";
+    let cookier: string = "mon=€;";
+    document.cookie =cookie;
+    document.cookie =cookier; 
+}
 

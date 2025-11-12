@@ -1,3 +1,7 @@
+window.onload = function () {
+    cuadricula();
+    ej1_cookie();
+};
 function $inputValuee(id) {
     var input = document.getElementById(id); //Lectura
     var result = "";
@@ -167,4 +171,27 @@ function jugar_lista() {
         default:
             break;
     }
+}
+function cuadricula() {
+    var divs = document.getElementById("contenedor");
+    var notas = ["Javier", "Limpio", "Alvaro", "Fran", "Elite", "Franfli", "Xexu"];
+    for (var index = 0; index < notas.length; index++) {
+        divs.appendChild(crea_ficha(notas[index]));
+    }
+}
+function crea_ficha(alumno) {
+    var ficha = document.createElement("div");
+    ficha.textContent = alumno;
+    ficha.style.background;
+    return ficha;
+}
+function crear_nuevoAlum() {
+    var nombre = prompt("Introduce el nombre del nuevo alumno");
+    var divs = document.getElementById("contenedor");
+}
+function ej1_cookie() {
+    var cookie = "lang=ES;";
+    var cookier = "mon=€;";
+    document.cookie = cookie;
+    document.cookie = cookier;
 }

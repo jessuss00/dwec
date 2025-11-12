@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="script.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeScript Practice</title>
+</head>
+<body>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" placeholder="Nombre"><br>
+    <label for="apellido">Apellido:</label>
+    <input type="text" id="apellido" placeholder="Apellido"><br>
+    <label for="edad">edad:</label>
+    <input type="number" id="edad" placeholder="edad"><br>
+    <label for="tlf">Telefono:</label>
+    <input type="text" id="tlf" placeholder="Telefono"><br>
+    <label for="fecha">Fecha:</label>
+    <input type="date" id="fechaNac"><br>
+    <label for="url">URL de tu red soical de trabajo favorita</label>
+    <input type="text" id="url" placeholder="url"><br>
+    <select name="opciones" id="opt">
+        <option value="1">Ver tu nombre al reves con tu año nacimiento</option>
+        <option value="2">Ir a la red social indicada con tu apellido</option>
+        <option value="3">Clacula tu edad con fecha</option>
+        <option value="4">Guarda los datos en las cookies</option>
+    </select>
+    <div id="hueco" style="background-color: gray;">
+        <p id="parrafo">Sin informacion</p>
+    </div>
+    <button style="text-align: left;" onclick="realizar_accion()">Enviar formulario</button>
+</body>
+</html>

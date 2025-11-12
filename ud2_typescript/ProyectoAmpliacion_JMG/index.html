@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Proyecto Ampliación JMG</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div id="clasificacion">
+        <table id="clasificacion" border="1">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Puntos</th>
+                    <th>Partidos jugados</th>
+                    <th>Partidos ganados</th>
+                    <th>Partidos empatados</th>
+                    <th>Partidos perdidos</th>
+                    <th>Goles a Favor</th>
+                    <th>Goles en Contra</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-cuerpo">
+            </tbody>
+
+        </table>
+        <button onclick="verTabla()">Enviar resultado</button>
+        <h2>Formulario de Partido</h2>
+
+        <form id="formPartido">
+            <!-- a. Equipo local -->
+            <label for="equipoLocal">Equipo local:</label>
+            <select id="equipoLocal">
+                <option value="">Selecciona equipo</option>
+                <option>Real Madrid</option>
+                <option>Barcelona</option>
+                <option>Atlético de Madrid</option>
+                <option>Valencia</option>
+                <option>Sevilla</option>
+            </select>
+
+            <!-- b. Equipo visitante -->
+            <label for="equipoVisitante">Equipo visitante:</label>
+            <select id="equipoVisitante">
+                <option value="">Selecciona equipo</option>
+                <option>Real Madrid</option>
+                <option>Barcelona</option>
+                <option>Atlético de Madrid</option>
+                <option>Valencia</option>
+                <option>Sevilla</option>
+            </select>
+
+            <!-- c. Campos numéricos -->
+            <label for="golesLocal">Goles del local:</label>
+            <input type="number" id="golesLocal" min="0">
+
+            <label for="golesVisitante">Goles del visitante:</label>
+            <input type="number" id="golesVisitante" min="0">
+        </form>
+        <button>Enviar resultado</button>
+    </div>
+
+</body>
+
+</html>
