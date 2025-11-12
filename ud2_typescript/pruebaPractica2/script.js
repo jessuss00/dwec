@@ -95,3 +95,19 @@ function $getCookieByKey2(key) {
 function actualizarWeb() {
     window.location.reload();
 }
+//helpers
+function $inputById3(id) {
+    return document.getElementById(id);
+}
+function $getCookieByKey(key) {
+    var arrayCokie = document.cookie.split(";");
+    var result = "";
+    for (var index = 0; index < arrayCokie.length; index++) {
+        var clave = arrayCokie[index].split("=")[0];
+        var valor = arrayCokie[index].split("=")[1];
+        if (clave.trim() == key) {
+            result = valor;
+        }
+    }
+    return result;
+}

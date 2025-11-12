@@ -98,3 +98,72 @@ function $getCookieByKey2(key: string): string{
 function actualizarWeb(): void{
     window.location.reload();
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//helpers
+function $inputById3(id: string): HTMLInputElement{
+    return document.getElementById(id) as HTMLInputElement;
+}
+
+function $getCookieByKey(key: string): string{
+    let arrayCokie = document.cookie.split(";");
+    let result= "";
+    for (let index = 0; index < arrayCokie.length; index++) {
+        let clave = arrayCokie[index].split("=")[0];
+        let valor = arrayCokie[index].split("=")[1];
+        if (clave.trim()==key) {
+            result = valor;
+        }
+    }
+    return result;
+}
