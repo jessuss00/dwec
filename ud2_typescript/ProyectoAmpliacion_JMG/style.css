@@ -1,147 +1,80 @@
-/* ======== Estilo general ======== */
 body {
     font-family: Arial, sans-serif;
-    background: #232e44;
-    color: #c9e2ff;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
-    margin: 0;
-    padding: 20px;
-    box-sizing: border-box;
+    margin: 20px;
+    background-color: #f4f4f9;
+    color: #333;
 }
 
-/* ======== Contenedor principal ======== */
 #clasificacion {
-    background-color: #293352;
-    padding: 18px 20px;
-    border-radius: 16px;
-    text-align: center;
-    width: 100%;
-    max-width: 750px;
-    box-shadow: 0 2px 10px #14213930;
+    max-width: 900px;
+    margin: auto;
 }
 
-/* ======== Tabla de clasificación ======== */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 16px;
-    font-size: 14px;
+    margin-bottom: 20px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
 }
 
 th {
-    background-color: #506ad4;
-    color: #fff;
-    padding: 7px;
-    text-transform: uppercase;
-    border-radius: 6px 6px 0 0;
+    background-color: #00a31b;
+    color: white;
 }
 
-td {
-    background-color: #32406a;
-    color: #e1ebff;
+tr:nth-child(even) {
+    background-color: #e9f0fb;
+}
+
+h2 {
     text-align: center;
-    padding: 6px;
-    border-bottom: 1px solid #506ad4;
+    color: #00a31b;
+    margin-bottom: 15px;
 }
 
-tr:hover td {
-    background-color: #44507b;
-}
-
-/* ======== Botones ======== */
-button {
-    background-color: #6a90ff;
-    color: #fff;
-    border: none;
-    padding: 10px 22px;
-    font-size: 15px;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 14px;
-    transition: background 0.2s;
-}
-
-button:hover {
-    background-color: #375bdd;
-}
-
-/* ======== Formulario ======== */
 form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px 15px;
-    align-items: center;
-    margin-top: 18px;
-    background-color: #223059;
-    border-radius: 10px;
-    padding: 12px;
+    background-color: white;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: auto;
+    border-radius: 5px;
 }
 
 label {
-    text-align: right;
-    font-size: 13px;
-    color: #8db0f6;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
 select, input[type="number"] {
-    background-color: #1c2748;
-    border: 1px solid #506ad4;
-    color: #c9e2ff;
-    border-radius: 6px;
-    padding: 4px;
-    text-align: center;
-    font-size: 13px;
-    outline: none;
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
-select:focus, input[type="number"]:focus {
-    border-color: #6a90ff;
+button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px;
+    background-color: #00a31b;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
 }
 
-/* ======== Título ======== */
-h2 {
-    margin-top: 22px;
-    color: #77aaff;
-    font-size: 19px;
-    letter-spacing: 1px;
-}
-
-/* ======== Marcador central ======== */
-.marcador {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #182037;
-    border-radius: 32px;
-    margin: 30px auto 22px auto;
-    max-width: 400px;
-    box-shadow: 0 2px 8px #14213930;
-}
-.marcador .equipo {
-    width: 105px;
-    color: #fff;
-    font-weight: bold;
-    font-size: 17px;
-}
-.marcador .score {
-    font-size: 44px;
-    background: #32406a;
-    color: #69d6fe;
-    border-radius: 18px;
-    width: 70px;
-    height: 70px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 16px;
-    font-family: 'Arial Black', Arial, sans-serif;
-}
-.marcador .tiempo {
-    font-size: 17px;
-    color: #fff;
-    margin: 0 15px;
+button:hover {
+    background-color: #005fa3;
 }
