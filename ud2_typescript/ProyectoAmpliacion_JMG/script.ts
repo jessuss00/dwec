@@ -24,11 +24,10 @@ const clasificacionLiga = [
     ["Real Oviedo", 0, 0, 0, 0, 0, 0, 0],
     ["Girona", 0, 0, 0, 0, 0, 0, 0]
 ];
-//Para el mesnaje de error
+
 let form: HTMLFormElement = document.getElementById("formPartido") as HTMLFormElement;
 var parrafoErro: HTMLParagraphElement = document.createElement('p') as HTMLParagraphElement;
 
-//Para mostrar la tabla
 const tablaCuerpo = document.getElementById('tabla-cuerpo') as HTMLTableSectionElement;
 
 function verTabla(): void {
