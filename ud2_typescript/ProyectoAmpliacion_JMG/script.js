@@ -23,8 +23,10 @@ var clasificacionLiga = [
     ["Real Oviedo", 0, 0, 0, 0, 0, 0, 0],
     ["Girona", 0, 0, 0, 0, 0, 0, 0]
 ];
+//Para el mesnaje de error
 var form = document.getElementById("formPartido");
 var parrafoErro = document.createElement('p');
+//Para mostrar la tabla
 var tablaCuerpo = document.getElementById('tabla-cuerpo');
 function verTabla() {
     tablaCuerpo.textContent = "";
@@ -38,6 +40,7 @@ function verTabla() {
         tablaCuerpo.appendChild(filas);
     }
 }
+//Sumar los resultados
 function procesarPartido() {
     parrafoErro.textContent = "";
     var local = document.getElementById("equipoLocal").value;
@@ -61,34 +64,44 @@ function procesarPartido() {
             }
         }
         // Partidos 
-        clasificacionLiga[equipoLocal][2] = Number(clasificacionLiga[equipoLocal][2]) + 1; //sumamos 1 partido jugado
-        clasificacionLiga[equipoVisitante][2] = Number(clasificacionLiga[equipoVisitante][2]) + 1; //sumamos 1 partido jugado
+        clasificacionLiga[equipoLocal][2] = Number(clasificacionLiga[equipoLocal][2]) + 1;
+        clasificacionLiga[equipoVisitante][2] = Number(clasificacionLiga[equipoVisitante][2]) + 1;
         // Goles a favor
-        clasificacionLiga[equipoLocal][6] = Number(clasificacionLiga[equipoLocal][6]) + golesLocal; //--> Al equipo local sumamos los goles locales
-        clasificacionLiga[equipoVisitante][6] = Number(clasificacionLiga[equipoVisitante][6]) + golesVisitante; //--> Al equipo visitante sumamos los goles visitantes
+        clasificacionLiga[equipoLocal][6] = Number(clasificacionLiga[equipoLocal][6]) + golesLocal;
+        clasificacionLiga[equipoVisitante][6] = Number(clasificacionLiga[equipoVisitante][6]) + golesVisitante;
         // Goles en contra
-        clasificacionLiga[equipoLocal][7] = Number(clasificacionLiga[equipoLocal][7]) + golesVisitante; //--> Al equipo local sumamos los goles del visitante
-        clasificacionLiga[equipoVisitante][7] = Number(clasificacionLiga[equipoVisitante][7]) + golesLocal; //--> Al equipo visitante sumamos los goles del local
+        clasificacionLiga[equipoLocal][7] = Number(clasificacionLiga[equipoLocal][7]) + golesVisitante;
+        clasificacionLiga[equipoVisitante][7] = Number(clasificacionLiga[equipoVisitante][7]) + golesLocal;
         // Resultado
         if (golesLocal > golesVisitante) {
             // local gana
-            clasificacionLiga[equipoLocal][3] = Number(clasificacionLiga[equipoLocal][3]) + 1; //-->Sumamos 1 a partido ganados
-            clasificacionLiga[equipoVisitante][5] = Number(clasificacionLiga[equipoVisitante][5]) + 1; //--> Sumamos 1 a partidos perdidos
-            clasificacionLiga[equipoLocal][1] = Number(clasificacionLiga[equipoLocal][1]) + 3; // --> Sumamos los 3 puntos 
+            clasificacionLiga[equipoLocal][3] = Number(clasificacionLiga[equipoLocal][3]) + 1;
+            clasificacionLiga[equipoVisitante][5] = Number(clasificacionLiga[equipoVisitante][5]) + 1;
+            clasificacionLiga[equipoLocal][1] = Number(clasificacionLiga[equipoLocal][1]) + 3;
         }
         else if (golesLocal < golesVisitante) {
             // visitante gana
-            clasificacionLiga[equipoVisitante][3] = Number(clasificacionLiga[equipoVisitante][3]) + 1; //-->Sumamos 1 a partido ganados
-            clasificacionLiga[equipoLocal][5] = Number(clasificacionLiga[equipoLocal][5]) + 1; //--> Sumamos 1 a partidos perdidos
-            clasificacionLiga[equipoVisitante][1] = Number(clasificacionLiga[equipoVisitante][1]) + 3; // --> Sumamos los 3 puntos 
+            clasificacionLiga[equipoVisitante][3] = Number(clasificacionLiga[equipoVisitante][3]) + 1;
+            clasificacionLiga[equipoLocal][5] = Number(clasificacionLiga[equipoLocal][5]) + 1;
+            clasificacionLiga[equipoVisitante][1] = Number(clasificacionLiga[equipoVisitante][1]) + 3;
         }
         else {
             // empates
-            clasificacionLiga[equipoLocal][4] = Number(clasificacionLiga[equipoLocal][4]) + 1; // sumamos 1 a los partidos empatados
-            clasificacionLiga[equipoVisitante][4] = Number(clasificacionLiga[equipoVisitante][4]) + 1; // sumamos 1 a los partidos empatados
-            clasificacionLiga[equipoLocal][1] = Number(clasificacionLiga[equipoLocal][1]) + 1; // --> Sumamos el punto 
-            clasificacionLiga[equipoVisitante][1] = Number(clasificacionLiga[equipoVisitante][1]) + 1; // --> Sumamos el punto 
+            clasificacionLiga[equipoLocal][4] = Number(clasificacionLiga[equipoLocal][4]) + 1;
+            clasificacionLiga[equipoVisitante][4] = Number(clasificacionLiga[equipoVisitante][4]) + 1;
+            clasificacionLiga[equipoLocal][1] = Number(clasificacionLiga[equipoLocal][1]) + 1;
+            clasificacionLiga[equipoVisitante][1] = Number(clasificacionLiga[equipoVisitante][1]) + 1;
         }
+        clasificacionLiga.sort(function (a, b) {
+            var puntosA = a[1];
+            var puntosB = b[1];
+            var golesA = a[6];
+            var golesB = b[6];
+            if (puntosB !== puntosA) {
+                return puntosB - puntosA;
+            }
+            return golesB - golesA;
+        });
         verTabla();
     }
 }

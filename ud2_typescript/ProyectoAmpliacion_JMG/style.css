@@ -1,80 +1,110 @@
+/* ----- GENERAL ----- */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Poppins", Arial, sans-serif;
     margin: 20px;
-    background-color: #f4f4f9;
+    background-color: #f3f6f9;
     color: #333;
 }
 
+/* Contenedor */
 #clasificacion {
     max-width: 900px;
     margin: auto;
 }
 
+/* ----- TÍTULO ----- */
+h2 {
+    text-align: center;
+    color: #008f5a;
+    margin-bottom: 18px;
+    font-weight: 600;
+}
+
+/* ----- TABLA ----- */
 table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
     background-color: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 }
 
 th, td {
-    padding: 10px;
+    padding: 12px;
     text-align: center;
-    border: 1px solid #ccc;
 }
 
 th {
-    background-color: #00a31b;
+    background-color: #008f5a;
     color: white;
+    font-weight: 600;
 }
 
+td {
+    border-bottom: 1px solid #e6e6e6;
+}
+
+/* Filas alternas */
 tr:nth-child(even) {
-    background-color: #e9f0fb;
+    background-color: #f7f9fc;
 }
 
-h2 {
-    text-align: center;
-    color: #00a31b;
-    margin-bottom: 15px;
+/* Hover suave */
+tr:hover {
+    background-color: #e8f5ef;
 }
 
+/* ----- FORMULARIO ----- */
 form {
     background-color: white;
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    max-width: 500px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    max-width: 520px;
     margin: auto;
-    border-radius: 5px;
+    border-radius: 8px;
 }
 
 label {
     display: block;
-    margin-top: 10px;
+    margin-top: 12px;
     margin-bottom: 5px;
-    font-weight: bold;
+    font-weight: 600;
+    color: #008f5a;
 }
 
+/* Inputs */
 select, input[type="number"] {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     box-sizing: border-box;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 6px;
+    outline: none;
+    transition: border 0.2s;
 }
 
+select:focus,
+input[type="number"]:focus {
+    border-color: #008f5a;
+}
+
+/* ----- BOTÓN ----- */
 button {
-    margin-top: 15px;
+    margin-top: 18px;
     width: 100%;
-    padding: 10px;
-    background-color: #00a31b;
+    padding: 12px;
+    background-color: #008f5a;
     border: none;
     color: white;
     font-size: 16px;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background 0.2s ease;
 }
 
 button:hover {
-    background-color: #005fa3;
+    background-color: #006f47;
 }
